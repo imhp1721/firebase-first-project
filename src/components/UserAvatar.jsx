@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 export default function UserAvatar({ uid }) {
   const url = `https://fir-first-project-dd653-default-rtdb.europe-west1.firebasedatabase.app/users/${uid}.json`;
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     async function getUser() {
