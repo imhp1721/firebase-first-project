@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import PostForm from "../components/PostForm";
 
 export default function UpdatePage() {
   const navigate = useNavigate();
@@ -58,39 +59,13 @@ export default function UpdatePage() {
   return (
     <section className="page">
       <h1>Update post</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="caption">Title</label>
-        <input
-          id="caption"
-          type="text"
-          value={caption}
-          placeholder="Type a title"
-          onChange={(e) => setCaption(e.target.value)}
-        />
-        <label htmlFor="image">Image URL</label>
-        <input
-          id="image"
-          type="url"
-          value={image}
-          placeholder="Paste image URL"
-          onChange={(e) => setImage(e.target.value)}
-        />
-        <img
-          id="image-preview"
-          className="image-preview"
-          src={
-            image
-              ? image
-              : "https://placehold.co/600x400?text=Paste+an+image+URL"
-          }
-          alt="Preview"
-          onError={(e) =>
-            (e.target.src =
-              "https://placehold.co/600x400?text=Error+loading+image")
-          }
-        />
-        <button type="submit">UPDATE POST</button>
-      </form>
+      <PostForm
+        savePost={handleSubmit}
+        image={image}
+        setImage={setImage}
+        setCaption={setCaption}
+        caption={caption}
+      />
       <button onClick={deletePost} type="delete">
         DELETE POST
       </button>
