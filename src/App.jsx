@@ -6,17 +6,15 @@ import CreatePage from "./pages/CreatePage";
 
 function App() {
     return (
-        <>
-            <NavBar />
             <main>
+            <NavBar />
                 <Routes>
                     <Route path="/" element={<HomePage />} />
-                    <Route path="/update" element={<UpdatePage />} />
                     <Route path="/create" element={<CreatePage />} />
+                    <Route path="/posts/:postId" element={<UpdatePage />} />
                     <Route path="*" element={<Navigate to="/" />} />
                 </Routes>
             </main>
-        </>
     );
 }
 
